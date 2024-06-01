@@ -19,6 +19,34 @@ return
     end
   },
   {
-    "neovim/nvim-lspconfig"
-  }
+    "neovim/nvim-lspconfig",
+    config = function()
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.supports_method('textDocument/rename') then
+            vim.keymap.set('n', '<C-r>', vim.lsp.buf.rename, {})
+          end
+          if client.supports_method('textDocument/implementation') then
+            vim.keymap.set('n', '<leader>I', vim.lsp.buf.implementation, {})
+          end
+          if client.supports_method('textDocument/format') then
+            vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, {})
+          end
+          if client.supports_method('textDocument/code_action') then
+            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+          end
+          if client.supports_method('textDocument/definition') then
+            vim.keymap.set('n', '<C-g>', vim.lsp.buf.definition, {})
+          end
+          if client.supports_method('textDocument/declaration') then
+            vim.keymap.set('n', '<C-h>', vim.lsp.buf.declaration, {})
+          end
+          if client.supports_method('textDocument/references') then
+            vim.keymap.set('n', '<C-j>', vim.lsp.buf.references, {})
+          end
+        end,
+      })
+    end,
+  },
 }
