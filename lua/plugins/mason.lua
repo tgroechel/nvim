@@ -40,25 +40,25 @@ return
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client.supports_method('textDocument/rename') then
-            vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, {})
+            vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, { desc = "lsp rename" })
           end
           if client.supports_method('textDocument/implementation') then
-            vim.keymap.set('n', '<leader>I', vim.lsp.buf.implementation, {})
+            vim.keymap.set('n', '<leader>I', vim.lsp.buf.implementation, {desc = "lsp implementation" })
           end
           if client.supports_method('textDocument/format') then
-            vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, {})
+            vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, {desc = "lsp format" })
           end
           if client.supports_method('textDocument/code_action') then
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = "lsp code_action" })
           end
           if client.supports_method('textDocument/definition') then
-            vim.keymap.set('n', '<C-g>', vim.lsp.buf.definition, {})
+            vim.keymap.set('n', '<C-g>', vim.lsp.buf.definition, {desc = "lsp definition" })
           end
           if client.supports_method('textDocument/declaration') then
-            vim.keymap.set('n', '<C-h>', vim.lsp.buf.declaration, {})
+            vim.keymap.set('n', '<C-h>', vim.lsp.buf.declaration, {desc = "lsp declaration" })
           end
           if client.supports_method('textDocument/references') then
-            vim.keymap.set('n', '<C-j>', vim.lsp.buf.references, {})
+            vim.keymap.set('n', '<C-j>', vim.lsp.buf.references, {desc = "lsp references" })
           end
         end,
       })
