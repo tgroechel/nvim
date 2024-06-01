@@ -40,7 +40,7 @@ return
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client.supports_method('textDocument/rename') then
-            vim.keymap.set('n', '<C-r>', vim.lsp.buf.rename, {})
+            vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, {})
           end
           if client.supports_method('textDocument/implementation') then
             vim.keymap.set('n', '<leader>I', vim.lsp.buf.implementation, {})

@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "       -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -25,3 +25,4 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set scrolloff=8")
+vim.cmd("set title")
