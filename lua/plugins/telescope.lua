@@ -9,6 +9,18 @@ return {
       borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
     },
     config = function()
+      local actions = require("telescope.actions")
+      local telescope = require("telescope")
+      telescope.setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-[>"] = actions.close,
+              ["<C-e>"] = actions.close, -- harpoon toggle
+            }
+          }
+        }
+      })
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})

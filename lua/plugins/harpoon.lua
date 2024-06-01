@@ -14,8 +14,9 @@ return
       local conf = require("telescope.config").values
       local function toggle_telescope(harpoon_files)
         local file_paths = {}
-        for _, item in ipairs(harpoon_files.items) do
-          table.insert(file_paths, item.value)
+        for i, item in ipairs(harpoon_files.items) do
+          local value = i .. " " .. item.value
+          table.insert(file_paths, value)
         end
 
         require("telescope.pickers").new({}, {
